@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Guardias Urología HUMV - Sistema de Planificación v4.0</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen bg-gray-100">
+  <header class="gradient-bg shadow-lg p-6 no-print">
+    <div class="flex justify-between items-center max-w-7xl mx-auto">
+      <div>
+        <h1 class="text-2xl font-bold text-white">Guardias Urología HUMV</h1>
+        <p class="text-blue-100 text-sm">Sistema de Planificación - Versión 4.0</p>
+        <div id="estado-actual" class="mt-2">
+          <span class="estado-borrador px-3 py-1 rounded-full text-xs font-semibold">
+            🟡 BORRADOR - Sin confirmar
+          </span>
+        </div>
+      </div>
+      <div class="flex space-x-3" id="botones-principales"></div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto p-6">
+    <div id="tab-horario" class="card p-6">
+      <div class="flex flex-wrap items-center gap-4 mb-6">
+        <div class="flex items-center space-x-2">
+          <label for="select-mes" class="font-semibold text-gray-700">Mes:</label>
+          <select id="select-mes" class="border border-gray-300 rounded-lg p-2">
+            <option value="0">Enero</option>
+            <option value="1">Febrero</option>
+            <option value="2">Marzo</option>
+            <option value="3">Abril</option>
+            <option value="4">Mayo</option>
+            <option value="5">Junio</option>
+            <option value="6">Julio</option>
+            <option value="7">Agosto</option>
+            <option value="8">Septiembre</option>
+            <option value="9">Octubre</option>
+            <option value="10">Noviembre</option>
+            <option value="11">Diciembre</option>
+          </select>
+        </div>
+        <div class="flex items-center space-x-2">
+          <label for="select-anio" class="font-semibold text-gray-700">Año:</label>
+          <select id="select-anio" class="border border-gray-300 rounded-lg p-2"></select>
+        </div>
+        <button id="btn-generar-horario" class="bg-blue-600 text-white px-6 py-2 rounded-lg">Generar Horario</button>
+      </div>
+      <div class="overflow-auto border border-gray-200 rounded-lg">
+        <table class="min-w-full table-auto border-collapse" id="tabla-horario">
+          <thead>
+            <tr class="bg-gray-50 text-gray-700">
+              <th class="border-b border-gray-200 p-3">Fecha</th>
+              <th class="border-b border-gray-200 p-3">Día</th>
+              <th class="border-b border-gray-200 p-3">Staff 1</th>
+              <th class="border-b border-gray-200 p-3">Staff 2</th>
+              <th class="border-b border-gray-200 p-3">Residente</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card p-6 mt-8" id="export-section">
+      <h3 class="text-lg font-semibold mb-4 text-gray-700">Opciones de Exportación</h3>
+      <div class="space-y-4">
+        <button id="btn-export-ics" class="w-full google-btn text-white px-4 py-3 rounded-lg" disabled>
+          📅 Descargar archivo .ics (Google Calendar)
+        </button>
+        <button id="btn-exportar-csv" class="w-full bg-yellow-600 text-white px-4 py-3 rounded-lg hover:bg-yellow-700" disabled>
+          📄 Exportar CSV
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
